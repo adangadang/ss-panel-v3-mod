@@ -150,6 +150,8 @@ $app->group('/user', function () {
     $this->post('/unblock', 'App\Controllers\UserController:Unblock');
     $this->get('/bought', 'App\Controllers\UserController:bought');
     $this->delete('/bought', 'App\Controllers\UserController:deleteBoughtGet');
+
+    $this->get('/url_reset', 'App\Controllers\UserController:resetURL');
 })->add(new Auth());
 
 // Auth
@@ -263,11 +265,10 @@ $app->group('/admin', function () {
 
     // User Mange
     $this->get('/user', 'App\Controllers\Admin\UserController:index');
-    $this->get('/user/search/{text}', 'App\Controllers\Admin\UserController:search');
     $this->get('/user/{id}/edit', 'App\Controllers\Admin\UserController:edit');
     $this->put('/user/{id}', 'App\Controllers\Admin\UserController:update');
     $this->delete('/user', 'App\Controllers\Admin\UserController:delete');
-    $this->post('/user/ajax', 'App\Controllers\Admin\UserController:ajax');
+    $this->get('/user/ajax', 'App\Controllers\Admin\UserController:ajax');
 
 
     $this->get('/coupon', 'App\Controllers\AdminController:coupon');
